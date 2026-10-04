@@ -13,6 +13,5 @@ namespace CommunityLibraryManagementAPI.Repositories
         Task<bool> UpdateAsync(Loan loan);
 
         Task<bool> DeleteAsync(int id);
-
     }
 }
