@@ -2,9 +2,6 @@
 using CommunityLibraryManagementAPI.Models.Dto;
 using CommunityLibraryManagementAPI.Repositories;
 
-nausing CommunityLibraryManagementAPI.Models.Domain;
-using CommunityLibraryManagementAPI.Models.Dto;
-using CommunityLibraryManagementAPI.Repositories;
 
 namespace CommunityLibraryManagementAPI.Services
 {
