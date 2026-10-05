@@ -75,7 +75,7 @@ Responsible for the Loans feature, including:
 
 ## Project Structure
 
-
+```text
 CommunityLibraryManagementAPI/
 │
 ├── Controllers/
@@ -127,6 +127,8 @@ The main objectives of this project are:
 - To manage relationships between books, members, and loans.
 - To apply layered architecture using Controllers, Services, and Repositories.
 - To practice collaborative software development using Git and GitHub. 
+```
+
 
 CONCLUSION
 
