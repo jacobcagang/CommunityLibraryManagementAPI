@@ -19,7 +19,6 @@ namespace CommunityLibraryManagementAPI.Controllers
         public async Task<ActionResult<List<BookDto>>> GetAll()
         {
             var books = await _service.GetAllAsync();
-
             return Ok(books);
         }
 
@@ -39,25 +38,46 @@ namespace CommunityLibraryManagementAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<BookDto>> Create(BookDto dto)
         {
-            var book = await _service.CreateAsync(dto);
+            try
+            {
+                var createdBook = await _service.CreateAsync(dto);
 
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = book.Id },
-                book);
+                return CreatedAtAction(
+                    nameof(GetById),
+                    new { id = createdBook.Id },
+                    createdBook
+                );
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, BookDto dto)
         {
-            var updated = await _service.UpdateAsync(id, dto);
-
-            if (!updated)
+            try
             {
-                return NotFound();
-            }
+                var updated = await _service.UpdateAsync(id, dto);
 
-            return NoContent();
+                if (!updated)
+                {
+                    return NotFound();
+                }
+
+                return NoContent();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
+            }
         }
 
         [HttpDelete("{id}")]

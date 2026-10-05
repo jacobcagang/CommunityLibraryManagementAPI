@@ -26,6 +26,10 @@ namespace CommunityLibraryManagementAPI.Models.Domain
 
         public int AvailableCopies { get; set; }
 
+        public int PublishedYear { get; set; }
+
+        public bool IsAvailable { get; set; } = true;
+
         public ICollection<Loan> Loans { get; set; } = new List<Loan>();
     }
 }

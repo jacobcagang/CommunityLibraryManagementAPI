@@ -26,6 +26,12 @@ namespace CommunityLibraryManagementAPI.Repositories
                 .FirstOrDefaultAsync(b => b.Id == id);
         }
 
+        public async Task<Book?> GetByISBNAsync(string isbn)
+        {
+            return await _context.Books
+                .FirstOrDefaultAsync(b => b.ISBN == isbn);
+        }
+
         public async Task<Book> AddAsync(Book book)
         {
             _context.Books.Add(book);
