@@ -1,10 +1,13 @@
 COMMUNITY LIBRARY MANAGEMENT API
 
-- A RESTful Web API for managing a community library system. The API allows the management of books, library members, and book loans.
+- A RESTful Web API for managing a community library system.
+  The API allows the management of books, library members, and book loans.
 
 PROJECT OVERVIEW
 
-- The Community Library Management API is built using ASP.NET Core Web API. It follows a layered structure to separate controllers, services, repositories, models, and data access.
+- The Community Library Management API is built using ASP.NET Core Web API.
+  It follows a layered structure to separate controllers, services, repositories,
+  models, and data access.
 
 The system provides API endpoints for:
 
@@ -72,7 +75,7 @@ Responsible for the Loans feature, including:
 
 ## Project Structure
 
-```text
+
 CommunityLibraryManagementAPI/
 │
 ├── Controllers/
@@ -123,13 +126,16 @@ The main objectives of this project are:
 - To use Entity Framework Core for database operations.
 - To manage relationships between books, members, and loans.
 - To apply layered architecture using Controllers, Services, and Repositories.
-- To practice collaborative software development using Git and GitHub.
+- To practice collaborative software development using Git and GitHub. 
 
 CONCLUSION
 
-- The Community Library Management System demonstrates how a RESTful Web API can be used to manage common library operations. Through ASP.NET Core, Entity Framework Core, and SQL Server, the system provides an organized way to manage books, members, and borrowing transactions.
+- The Community Library Management System demonstrates how a RESTful Web API can be used to manage common library operations.
+  Through ASP.NET Core, Entity Framework Core, and SQL Server, the system provides an organized way to manage books, members,
+  and borrowing transactions.
 
-- The use of layered architecture also helps separate API requests, business logic, and database operations, making the application easier to maintain and improve.
+- The use of layered architecture also helps separate API requests, business logic, and database operations,
+  making the application easier to maintain and improve.
 
 GROUP MEMBERS
 
