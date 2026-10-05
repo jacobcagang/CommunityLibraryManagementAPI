@@ -1,0 +1,68 @@
+USE master;
+GO
+
+IF DB_ID('CommunityLibraryDB') IS NOT NULL
+BEGIN
+    ALTER DATABASE CommunityLibraryDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE CommunityLibraryDB;
+END
+GO
+
+CREATE DATABASE CommunityLibraryDB;
+GO
+
+USE CommunityLibraryDB;
+GO
+
+CREATE TABLE Books
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Title NVARCHAR(200) NOT NULL,
+    Author NVARCHAR(150) NOT NULL,
+    ISBN NVARCHAR(20) NOT NULL UNIQUE,
+    Category NVARCHAR(100) NOT NULL,
+    TotalCopies INT NOT NULL,
+    AvailableCopies INT NOT NULL,
+    PublishedYear INT NOT NULL,
+    IsAvailable BIT NOT NULL
+);
+GO
+
+CREATE TABLE Members
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(150) NOT NULL,
+    Email NVARCHAR(150) NOT NULL UNIQUE,
+    Phone NVARCHAR(20) NOT NULL,
+    MembershipDate DATETIME2 NOT NULL
+);
+GO
+
+CREATE TABLE Loans
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    BookId INT NOT NULL,
+    MemberId INT NOT NULL,
+    LoanDate DATETIME2 NOT NULL,
+    DueDate DATETIME2 NOT NULL,
+    ReturnDate DATETIME2 NULL,
+    Status NVARCHAR(20) NOT NULL,
+
+    CONSTRAINT FK_Loans_Books
+        FOREIGN KEY (BookId)
+        REFERENCES Books(Id),
+
+    CONSTRAINT FK_Loans_Members
+        FOREIGN KEY (MemberId)
+        REFERENCES Members(Id)
+);
+GO
+
+SELECT * FROM Books;
+GO
+
+SELECT * FROM Members;
+GO
+
+SELECT * FROM Loans;
+GO
