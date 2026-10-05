@@ -12,9 +12,15 @@ namespace CommunityLibraryManagementAPI.Models.Domain
         [Required]
         public int MemberId { get; set; }
 
-        public DateTime LoanDate { get; set; } = DateTime.UtcNow;
+        public DateTime BorrowedDate { get; set; } = DateTime.UtcNow;
 
-        public DateTime? ReturnDate { get; set; }
+        public DateTime DueDate { get; set; }
+
+        public DateTime? ReturnedDate { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        public string Status { get; set; } = "Borrowed";
 
         public Book? Book { get; set; }
 

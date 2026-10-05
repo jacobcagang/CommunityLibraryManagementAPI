@@ -18,9 +18,13 @@ namespace CommunityLibraryManagementAPI.Models.Domain
         [MaxLength(20)]
         public string ISBN { get; set; } = string.Empty;
 
-        public int PublishedYear { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public string Category { get; set; } = string.Empty;
 
-        public bool IsAvailable { get; set; } = true;
+        public int TotalCopies { get; set; }
+
+        public int AvailableCopies { get; set; }
 
         public ICollection<Loan> Loans { get; set; } = new List<Loan>();
     }
